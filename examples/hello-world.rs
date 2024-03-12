@@ -1,6 +1,6 @@
 use glyphon::{
-    Attrs, Buffer, Color, Family, FontSystem, Metrics, Resolution, Shaping, SwashCache, TextArea,
-    TextAtlas, TextBounds, TextRenderer,
+    Attrs, Buffer, Color, Family, FontSystem, Metrics, Resolution, Screen, Shaping, SwashCache,
+    TextArea, TextAtlas, TextBounds, TextRenderer,
 };
 use wgpu::{
     CommandEncoderDescriptor, CompositeAlphaMode, DeviceDescriptor, Features, Instance,
@@ -97,10 +97,10 @@ async fn run() {
                                 &queue,
                                 &mut font_system,
                                 &mut atlas,
-                                Resolution {
+                                Screen::Resolution(Resolution {
                                     width: config.width,
                                     height: config.height,
-                                },
+                                }),
                                 [TextArea {
                                     buffer: &buffer,
                                     left: 10.0,
